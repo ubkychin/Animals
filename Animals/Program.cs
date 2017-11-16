@@ -46,10 +46,10 @@ namespace Animals
         {
         }
 
-        //public override void Move()
-        //{
-        //    Console.WriteLine("Run!");
-        //}
+        public override void Move()
+        {
+            Console.WriteLine("Run!");
+        }
     }
 
     class Sea : Animal
