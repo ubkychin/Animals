@@ -8,6 +8,7 @@ namespace Animals
 {
     class Program
     {
+        
         static void Main(string[] args)
         {
             Land l = new Land("Dog", 20);
@@ -40,15 +41,25 @@ namespace Animals
         }
     }
 
-    class Land : Animal
+    class Land : Animal, IWalk, IBreatheAir
     {
         public Land(string n, int w) : base(n, w)
         {
         }
 
+        public void Breathe()
+        {
+            throw new NotImplementedException();
+        }
+
         public override void Move()
         {
             Console.WriteLine("Run!");
+        }
+
+        public void Walk()
+        {
+            Console.WriteLine("Walk");
         }
     }
 
@@ -65,7 +76,7 @@ namespace Animals
 
     }
 
-    class Air : Animal
+    class Air : Animal, IWalk
     {
         public Air(string n, int w) : base(n, w)
         {
@@ -75,5 +86,20 @@ namespace Animals
         {
             Console.WriteLine("Fly!");
         }
+
+        public void Walk()
+        {
+            Console.WriteLine("Walk");
+        }
+    }
+
+    public interface IWalk
+    {
+        void Walk();
+    }
+
+    public interface IBreatheAir
+    {
+        void Breathe();
     }
 }
